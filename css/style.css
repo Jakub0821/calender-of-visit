@@ -69,3 +69,35 @@ main {
     padding: 10px;
     width: 100%;
 }
+
+#appointments {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#appointment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#appointment-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+#appointment-list li button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#appointment-list li button:hover {
+    background-color: darkred;
+}

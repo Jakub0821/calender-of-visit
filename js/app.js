@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("DOMContentLoaded", function() {
         const daysElement = document.querySelector(".days");
         const formElement = document.getElementById("appointment-form");
+        const appointmentList = document.getElementById("appointment-list");
         const currentDate = new Date();
         const monthDays = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
     
@@ -43,10 +44,24 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
             const name = document.getElementById("name").value;
             const time = document.getElementById("time").value;
-            alert(`Wizyta umówiona!\nImię: ${name}\nDzień: ${selectedDay}\nCzas: ${time}`);
+            
+            // Dodaj wizytę do listy
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `Wizyta z ${name} o ${time} dnia ${selectedDay} 
+                <button class="cancel-button">Anuluj</button>`;
+            appointmentList.appendChild(listItem);
+            
+            // Resetuj formularz
             formElement.style.display = "none";
-        });
-    });
+            formElement.reset();
     
+            // Dodaj funkcjonalność anulowania wizyty
+            listItem.querySelector(".cancel-button").addEventListener("click", () => {
+                appointmentList.removeChild(listItem);
+            });
+    
+            alert(`Wizyta umówiona!\nImię: ${name}\nDzień: ${selectedDay}\nCzas: ${time}`);
+        });
+    });    
     
 });
