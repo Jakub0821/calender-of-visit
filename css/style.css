@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+main {
+    margin-top: 2rem;
+}
+
+#calendar {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.month {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.weekdays, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.weekdays div, .days div {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.days div {
+    cursor: pointer;
+}
+
+.days div:hover {
+    background-color: #eee;
+}
+#appointment-form {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#appointment-form input, #appointment-form button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
