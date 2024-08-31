@@ -12,23 +12,30 @@ body {
 
 header {
     background-color: #333;
-    color: #fff;
-    padding: 1rem;
+    color: white;
+    padding: 10px 0;
     text-align: center;
-    width: 100%;
+    width: 100%; /* Ustawia nagłówek na całą szerokość ekranu */
+    margin-bottom: 20px;
 }
 
 main {
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Cała szerokość ekranu */
+    max-width: 900px; /* Maksymalna szerokość kontenera */
+    margin: 0 auto; /* Wyśrodkowanie */
+    padding: 20px; /* Dodaj trochę przestrzeni */
 }
-
 #calendar {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 10px;
+    width: 100%; /* Upewnij się, że elementy zajmują całą dostępną szerokość */
+    max-width: 800px;
+    margin: 20px 0;
+    padding: 15px;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -71,8 +78,10 @@ main {
 }
 
 #appointments {
-    margin-top: 20px;
-    padding: 10px;
+    width: 100%; /* Upewnij się, że elementy zajmują całą dostępną szerokość */
+    max-width: 800px;
+    margin: 20px 0;
+    padding: 15px;
     border: 1px solid #ccc;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
