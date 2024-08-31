@@ -62,6 +62,28 @@ document.addEventListener("DOMContentLoaded", function() {
     
             alert(`Wizyta umówiona!\nImię: ${name}\nDzień: ${selectedDay}\nCzas: ${time}`);
         });
-    });    
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var calendarEl = document.getElementById('calendar');
+    
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            events: [
+                {
+                    title: 'Umówiona wizyta',
+                    start: '2024-08-28T14:00:00',
+                    end: '2024-08-28T15:00:00',
+                }
+            ]
+        });
+    
+        calendar.render();
+    });
     
 });

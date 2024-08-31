@@ -7,42 +7,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Calender of Visit</h1>
-    </header>
-    <main>
-        <div id="calendar">
-            <div class="month">
-                <h2>August 2024</h2>
+    <div class="container">
+        <aside>
+            <nav>
+                <ul>
+                    <li>Wizyty</li>
+                    <li>Ustawienia</li>
+                    <li>Profil</li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <div id="calendar"></div>
+            <div id="appointments">
+                <h3>Twoje wizyty:</h3>
+                <ul id="appointment-list"></ul>
             </div>
-            <div class="weekdays">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
-            </div>
-            <div class="days">
-                <!-- Tutaj będą generowane dni miesiąca przez JavaScript -->
-            </div>
-        </div>
-        <div id="appointment-form" style="display:none;">
-            <h3>Umów wizytę</h3>
-            <form>
-                <label for="name">Twoje imię:</label><br>
-                <input type="text" id="name" name="name"><br>
-                <label for="time">Czas wizyty:</label><br>
-                <input type="time" id="time" name="time"><br>
-                <button type="submit">Umów wizytę</button>
-            </form>
-        </div>
-        <div id="appointments">
-            <h3>Twoje wizyty:</h3>
-            <ul id="appointment-list"></ul>
-        </div>        
-    </main>
+        </main>
+    </div>
     <script src="js/app.js"></script>
 </body>
 </html>
