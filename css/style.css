@@ -1,13 +1,58 @@
-body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+aside {
+    width: 200px; /* Zmniejsz szerokość bocznego menu */
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Dodaj delikatny cień, aby oddzielić menu od reszty strony */
+}
+
+aside nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside nav ul li {
+    margin: 20px 0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
     background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    margin-left: 220px; /* Dodaj odstęp od bocznego menu */
+    max-width: calc(100% - 220px); /* Ustaw maksymalną szerokość kalendarza, aby nie wychodził poza ekran */
+}
+
+#calendar {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#appointments, #settings, #profile {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 header {
@@ -19,49 +64,6 @@ header {
     margin-bottom: 20px;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Cała szerokość ekranu */
-    max-width: 900px; /* Maksymalna szerokość kontenera */
-    margin: 0 auto; /* Wyśrodkowanie */
-    padding: 20px; /* Dodaj trochę przestrzeni */
-}
-#calendar {
-    width: 100%; /* Upewnij się, że elementy zajmują całą dostępną szerokość */
-    max-width: 800px;
-    margin: 20px 0;
-    padding: 15px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.month {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.weekdays, .days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-}
-
-.weekdays div, .days div {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-.days div {
-    cursor: pointer;
-}
-
-.days div:hover {
-    background-color: #eee;
-}
 #appointment-form {
     margin-top: 20px;
     padding: 10px;
@@ -75,16 +77,6 @@ main {
     margin: 10px 0;
     padding: 10px;
     width: 100%;
-}
-
-#appointments {
-    width: 100%; /* Upewnij się, że elementy zajmują całą dostępną szerokość */
-    max-width: 800px;
-    margin: 20px 0;
-    padding: 15px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #appointment-list {
@@ -109,57 +101,4 @@ main {
 
 #appointment-list li button:hover {
     background-color: darkred;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    display: flex;
-    height: 100%;
-}
-
-aside {
-    width: 200px; /* Zmniejsz szerokość bocznego menu */
-    background-color: #333;
-    color: white;
-    padding: 20px;
-}
-
-aside nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-aside nav ul li {
-    margin: 20px 0;
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    margin-left: 220px; /* Dodaj odstęp od bocznego menu */
-}
-
-#calendar {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#appointments {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
