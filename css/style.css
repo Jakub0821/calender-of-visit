@@ -12,16 +12,21 @@ body, html {
 }
 
 aside {
-    width: 200px; /* Zmniejsz szerokość bocznego menu */
-    background-color: #333;
+    width: 150px; /* Zmniejszona szerokość bocznego menu */
+    background-color: lightgreen; /* Tło paska bocznego */
     color: white;
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Dodaj delikatny cień, aby oddzielić menu od reszty strony */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+    position: fixed; /* Ustawienie na stałe po lewej stronie */
+    height: 100%; /* Wysokość na całą stronę */
+    top: 0;
+    left: 0;
 }
 
 aside nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 aside nav ul li {
@@ -29,13 +34,12 @@ aside nav ul li {
 }
 
 main {
+    margin-left: 170px; /* Odstęp od paska bocznego */
     flex: 1;
     padding: 20px;
     background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
-    margin-left: 220px; /* Dodaj odstęp od bocznego menu */
-    max-width: calc(100% - 220px); /* Ustaw maksymalną szerokość kalendarza, aby nie wychodził poza ekran */
 }
 
 #calendar {
