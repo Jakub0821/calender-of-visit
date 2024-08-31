@@ -42,71 +42,6 @@ main {
     flex-direction: column;
 }
 
-#calendar {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#appointments, #settings, #profile {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%; /* Ustawia nagłówek na całą szerokość ekranu */
-    margin-bottom: 20px;
-}
-
-#appointment-form {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#appointment-form input, #appointment-form button {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-}
-
-#appointment-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#appointment-list li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-}
-
-#appointment-list li button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-#appointment-list li button:hover {
-    background-color: darkred;
-}
-
 #custom-calendar {
     width: 100%;
     max-width: 600px;
@@ -138,4 +73,12 @@ header {
 
 .prev-date {
     color: #bbb;
+}
+
+#appointments, #settings, #profile {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }

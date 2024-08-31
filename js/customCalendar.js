@@ -16,10 +16,21 @@ document.addEventListener('DOMContentLoaded', function () {
         const lastDay = new Date(currentYear, currentMonth + 1, 0).getDate();
         const prevLastDay = new Date(currentYear, currentMonth, 0).getDate();
 
+        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
         monthYearElement.textContent = currentDate.toLocaleString('default', {
             month: 'long',
             year: 'numeric',
         });
+
+        // Populate days of the week
+        const weekDaysRow = calendarElement.querySelector('.weekdays');
+        weekDaysRow.innerHTML = '';
+        for (let i = 0; i < daysOfWeek.length; i++) {
+            const weekDay = document.createElement('div');
+            weekDay.textContent = daysOfWeek[i];
+            weekDaysRow.appendChild(weekDay);
+        }
 
         for (let i = firstDayIndex; i > 0; i--) {
             const day = document.createElement('div');
