@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calender of Visit</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <script src="js/customCalendar.js"></script>
 </head>
 <body>
     <div class="container">
@@ -19,7 +19,23 @@
             </nav>
         </aside>
         <main>
-            <div id="calendar"></div>
+            <div id="custom-calendar">
+                <div class="month">
+                    <button id="prev-month">&lt;</button>
+                    <h2 id="month-year"></h2>
+                    <button id="next-month">&gt;</button>
+                </div>
+                <div class="weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="days"></div>
+            </div>
             <div id="appointments" style="display:none;">
                 <h3>Twoje wizyty:</h3>
                 <ul id="appointment-list"></ul>
