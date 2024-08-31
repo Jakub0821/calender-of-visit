@@ -12,17 +12,25 @@
         <aside>
             <nav>
                 <ul>
-                    <li>Wizyty</li>
-                    <li>Ustawienia</li>
-                    <li>Profil</li>
+                    <li><a href="#appointments">Twoje wizyty</a></li>
+                    <li><a href="#settings">Ustawienia</a></li>
+                    <li><a href="#profile">Profil</a></li>
                 </ul>
             </nav>
         </aside>
         <main>
             <div id="calendar"></div>
-            <div id="appointments">
+            <div id="appointments" style="display:none;">
                 <h3>Twoje wizyty:</h3>
                 <ul id="appointment-list"></ul>
+            </div>
+            <div id="settings" style="display:none;">
+                <h3>Ustawienia</h3>
+                <!-- Dodaj ustawienia -->
+            </div>
+            <div id="profile" style="display:none;">
+                <h3>Profil</h3>
+                <!-- Dodaj informacje o profilu -->
             </div>
         </main>
     </div>

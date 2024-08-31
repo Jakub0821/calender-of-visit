@@ -86,4 +86,27 @@ document.addEventListener("DOMContentLoaded", function() {
         calendar.render();
     });
     
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll("aside nav ul li a");
+        const sections = document.querySelectorAll("main > div");
+    
+        navLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                const targetId = link.getAttribute("href").substring(1);
+                
+                sections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.style.display = "block";
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+            });
+        });
+    
+        // Pokaż kalendarz na start
+        document.getElementById('calendar').style.display = "block";
+    });
+    
 });
