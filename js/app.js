@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://<jakubmigda120>:<master2>@cluster2.pl88e.mongodb.net/appointmentsCalendar?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://calendarUser:<3MfZUlqGzxoqK7sY>@cluster2.pl88e.mongodb.net/appointmentsCalendar', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
