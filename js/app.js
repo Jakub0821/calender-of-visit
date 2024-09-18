@@ -17,9 +17,8 @@ mongoose.connect('mongodb+srv://calendarUser:3MfZUlqGzxoqK7sY@cluster2.pl88e.mon
 .then(() => console.log('MongoDB connected successfully'))
 .catch(err => console.log('MongoDB connection error:', err));
 
-
 // Use the appointment routes
-app.use('/api', appointmentRoutes);
+app.use('/api', appointmentRoutes); // Ensure the '/api' path is correctly set for the routes
 
 // Start the server
 const PORT = process.env.PORT || 3000;
