@@ -16,15 +16,40 @@ router.post('/appointments', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
-// Route to get all appointments (Trasa GET do pobrania wszystkich wizyt)
+// Route to get all appointments
 router.get('/appointments', async (req, res) => {
     try {
-        const appointments = await Appointment.find();  // Znajdź wszystkie wizyty w bazie danych
-        res.status(200).json(appointments);  // Zwróć wizyty jako odpowiedź JSON
+        const appointments = await Appointment.find();
+        res.status(200).json(appointments);
     } catch (err) {
-        res.status(500).json({ error: err.message });  // Jeśli coś poszło nie tak, zwróć błąd
+        res.status(500).json({ error: err.message });
     }
 });
 
-// Export the router
+// Route to delete an appointment
+router.delete('/appointments/:id', async (req, res) => {
+    try {
+        const deletedAppointment = await Appointment.findByIdAndDelete(req.params.id);
+        if (!deletedAppointment) {
+            return res.status(404).json({ message: 'Appointment not found' });
+        }
+        res.status(200).json({ message: 'Appointment cancelled successfully' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Route to confirm an appointment
+router.patch('/appointments/:id/confirm', async (req, res) => {
+    try {
+        const confirmedAppointment = await Appointment.findByIdAndUpdate(req.params.id, { confirmed: true }, { new: true });
+        if (!confirmedAppointment) {
+            return res.status(404).json({ message: 'Appointment not found' });
+        }
+        res.status(200).json(confirmedAppointment);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
