@@ -16,5 +16,15 @@ router.post('/appointments', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
+// Route to get all appointments (Trasa GET do pobrania wszystkich wizyt)
+router.get('/appointments', async (req, res) => {
+    try {
+        const appointments = await Appointment.find();  // Znajdź wszystkie wizyty w bazie danych
+        res.status(200).json(appointments);  // Zwróć wizyty jako odpowiedź JSON
+    } catch (err) {
+        res.status(500).json({ error: err.message });  // Jeśli coś poszło nie tak, zwróć błąd
+    }
+});
+
 // Export the router
 module.exports = router;
