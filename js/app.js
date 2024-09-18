@@ -10,10 +10,11 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://calendarUser:<3MfZUlqGzxoqK7sY>@cluster2.pl88e.mongodb.net/appointmentsCalendar', {
+mongoose.connect('mongodb+srv://calendarUser:3MfZUlqGzxoqK7sY@cluster2.pl88e.mongodb.net/appointmentsCalendar?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+    useUnifiedTopology: true
+  })
+  
 .then(() => console.log('MongoDB connected successfully'))
 .catch(err => console.log('MongoDB connection error:', err));
 
