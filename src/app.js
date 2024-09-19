@@ -1,11 +1,10 @@
 import React from 'react';
-import AppointmentManager from './components/AppointmentManager'; // Import the AppointmentManager component
+import Dashboard from './components/Dashboard'; // Import nowego komponentu Dashboard
 
 function App() {
   return (
     <div className="App">
-      <h1>Appointment Scheduler</h1>
-      <AppointmentManager />  {/* The React component for managing appointments */}
+      <Dashboard /> {/* Wyświetla kalendarz i zarządzanie wizytami */}
     </div>
   );
 }
