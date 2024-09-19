@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomCalendar from '../js/customCalendar'; // import twojego kalendarza
+import CustomCalendar from '../components/customCalendar'; // jeśli przeniesiesz do 'src/components'
 import AppointmentManager from './AppointmentManager'; // import formularza zarządzania wizytami
 
 const Dashboard = () => {
