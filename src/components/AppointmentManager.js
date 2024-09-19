@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addAppointment, cancelAppointment, confirmAppointment } from '../js/appointmentActions';
+import { addAppointment, cancelAppointment, confirmAppointment } from '../actions/appointmentActions';
 
 const AppointmentManager = () => {
   const [appointmentData, setAppointmentData] = useState({
