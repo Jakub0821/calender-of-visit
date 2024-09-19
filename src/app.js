@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboard from './components/Dashboard'; // Import nowego komponentu Dashboard
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
