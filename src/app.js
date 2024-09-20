@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header'; // Assuming the Header component is used for navigation or branding
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header'; // Assuming the Header component is used for navigation
 import Footer from './components/Footer'; // Assuming Footer contains any footer-related content
 import AppointmentForm from './components/AppointmentForm';
 import AppointmentList from './components/AppointmentList';
 import axios from 'axios';
+
+// Placeholder components for routing
+const Home = () => <h2>Welcome to the Home Page</h2>;
+const Settings = () => <h2>Settings Page</h2>;
+const Profile = () => <h2>Profile Page</h2>;
 
 const App = () => {
   const [appointments, setAppointments] = useState([]);
@@ -39,17 +45,28 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Header /> {/* Assuming the header includes navigation or branding */}
-      <main>
-        <AppointmentForm onAddAppointment={handleAddAppointment} />
-        <AppointmentList
-          appointments={appointments}
-          onDelete={handleDeleteAppointment}
-        />
-      </main>
-      <Footer /> {/* Assuming the footer contains any footer-related content */}
-    </div>
+    <Router>
+      <div>
+        <Header /> {/* Assuming the header includes navigation */}
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/appointments" element={
+            <>
+              <AppointmentForm onAddAppointment={handleAddAppointment} />
+              <AppointmentList
+                appointments={appointments}
+                onDelete={handleDeleteAppointment}
+              />
+            </>
+          } />
+        </Routes>
+
+        <Footer /> {/* Assuming the footer contains any footer-related content */}
+      </div>
+    </Router>
   );
 };
 
