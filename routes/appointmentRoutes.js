@@ -1,55 +1,63 @@
-const express = require('express');
+const express = require('express'); 
 const router = express.Router();
 const Appointment = require('../models/appointment');
 
-// Route to create a new appointment
-router.post('/appointments', (req, res) => {
-    const newAppointment = new Appointment({
-        name: req.body.name,
-        date: req.body.date,
-        time: req.body.time,
-        description: req.body.description,
-    });
-
-    newAppointment.save()
-        .then(appointment => res.status(201).json(appointment))
-        .catch(err => res.status(500).json({ error: err.message }));
+// Get all appointments
+router.get('/', async (req, res) => {
+  try {
+    const appointments = await Appointment.find();
+    res.json(appointments);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
-// Route to get all appointments
-router.get('/appointments', async (req, res) => {
-    try {
-        const appointments = await Appointment.find();
-        res.status(200).json(appointments);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+// Add a new appointment
+router.post('/', async (req, res) => {
+  const appointment = new Appointment({
+    name: req.body.name,
+    date: req.body.date,
+    time: req.body.time,
+    description: req.body.description,
+  });
+
+  try {
+    const newAppointment = await appointment.save();
+    res.status(201).json(newAppointment);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 });
 
-// Route to delete an appointment
-router.delete('/appointments/:id', async (req, res) => {
-    try {
-        const deletedAppointment = await Appointment.findByIdAndDelete(req.params.id);
-        if (!deletedAppointment) {
-            return res.status(404).json({ message: 'Appointment not found' });
-        }
-        res.status(200).json({ message: 'Appointment cancelled successfully' });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+// Update an appointment
+router.put('/:id', async (req, res) => {
+  try {
+    const appointment = await Appointment.findById(req.params.id);
+    if (!appointment) return res.status(404).json({ message: 'Appointment not found' });
+
+    appointment.name = req.body.name;
+    appointment.date = req.body.date;
+    appointment.time = req.body.time;
+    appointment.description = req.body.description;
+
+    const updatedAppointment = await appointment.save();
+    res.json(updatedAppointment);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 });
 
-// Route to confirm an appointment
-router.patch('/appointments/:id/confirm', async (req, res) => {
-    try {
-        const confirmedAppointment = await Appointment.findByIdAndUpdate(req.params.id, { confirmed: true }, { new: true });
-        if (!confirmedAppointment) {
-            return res.status(404).json({ message: 'Appointment not found' });
-        }
-        res.status(200).json(confirmedAppointment);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+// Delete an appointment
+router.delete('/:id', async (req, res) => {
+  try {
+    const appointment = await Appointment.findById(req.params.id);
+    if (!appointment) return res.status(404).json({ message: 'Appointment not found' });
+
+    await appointment.remove();
+    res.json({ message: 'Appointment deleted' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 module.exports = router;

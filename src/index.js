@@ -1,11 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css'; // Ten plik może być opcjonalny, jeśli masz style CSS
-import App from './App';
+import { createRoot } from 'react-dom/client'; // Updated for React 18
+import './index.css'; // Optional, if you have CSS styles
+import App from '/App';
 
-ReactDOM.render(
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement); // Create the root for React 18
+
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
