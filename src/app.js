@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header'; // Assuming the Header component is used for navigation
 import Footer from './components/Footer'; // Assuming Footer contains any footer-related content
+import Home from './components/Home';
+import Settings from './components/Settings';
+import Profile from './components/Profile';
 import AppointmentForm from './components/AppointmentForm';
 import AppointmentList from './components/AppointmentList';
 import axios from 'axios';
