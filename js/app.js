@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
-const appointmentRoutes = require('../routes/appointmentRoutes'); // Import your routes
+const appointmentRoutes = require('./routes/appointmentRoutes'); // Import route for appointments
+const authRoutes = require('./routes/authRoutes'); // Import route for authentication
+const authenticateToken = require('./middleware/auth'); // Import middleware for JWT verification
 
 const app = express();
 
@@ -17,9 +19,11 @@ mongoose.connect('mongodb+srv://calendarUser:3MfZUlqGzxoqK7sY@cluster.mongodb.ne
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+// Authentication routes (login/register)
+app.use('/api/auth', authRoutes);
 
-// Use the appointment routes
-app.use('/api/appointments', appointmentRoutes); // Ensure the '/api/appointments' path is correctly set
+// Appointment routes (secured by JWT authentication middleware)
+app.use('/api/appointments', authenticateToken, appointmentRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
