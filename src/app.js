@@ -10,9 +10,6 @@ import AppointmentList from './components/AppointmentList';
 import axios from 'axios';
 
 // Placeholder components for routing
-const Home = () => <h2>Welcome to the Home Page</h2>;
-const Settings = () => <h2>Settings Page</h2>;
-const Profile = () => <h2>Profile Page</h2>;
 
 const App = () => {
   const [appointments, setAppointments] = useState([]);
