@@ -1,9 +1,10 @@
 const express = require('express'); 
 const router = express.Router();
 const Appointment = require('../models/appointment');
+const authenticateToken = require('../middleware/authMiddleware'); // Import middleware do weryfikacji JWT
 
-// Get all appointments
-router.get('/', async (req, res) => {
+// Get all appointments (Zabezpieczone JWT)
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const appointments = await Appointment.find();
     res.json(appointments);
@@ -12,8 +13,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Add a new appointment
-router.post('/', async (req, res) => {
+// Add a new appointment (Zabezpieczone JWT)
+router.post('/', authenticateToken, async (req, res) => {
   const appointment = new Appointment({
     name: req.body.name,
     date: req.body.date,
@@ -29,8 +30,8 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Update an appointment
-router.put('/:id', async (req, res) => {
+// Update an appointment (Zabezpieczone JWT)
+router.put('/:id', authenticateToken, async (req, res) => {
   try {
     const appointment = await Appointment.findById(req.params.id);
     if (!appointment) return res.status(404).json({ message: 'Appointment not found' });
@@ -47,8 +48,8 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete an appointment
-router.delete('/:id', async (req, res) => {
+// Delete an appointment (Zabezpieczone JWT)
+router.delete('/:id', authenticateToken, async (req, res) => {
   try {
     const appointment = await Appointment.findById(req.params.id);
     if (!appointment) return res.status(404).json({ message: 'Appointment not found' });
