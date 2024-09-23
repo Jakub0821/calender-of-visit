@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const appointmentRoutes = require('../routes/appointmentRoutes'); // Import route for appointments
 const authRoutes = require('../routes/authRoutes'); // Import route for authentication
-const authenticateToken = require('./middleware/auth'); // Import middleware for JWT verification
+const authenticateToken = require('../middleware/auth'); // Import middleware for JWT verification
 
 const app = express();
 
