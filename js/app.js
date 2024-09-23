@@ -13,8 +13,6 @@ app.use(cors());
 
 // MongoDB Atlas connection
 mongoose.connect('mongodb+srv://calendarUser:3MfZUlqGzxoqK7sY@cluster2.pl88e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster2', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   retryWrites: true,
   w: 'majority'
 })
