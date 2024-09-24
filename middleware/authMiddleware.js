@@ -1,5 +1,8 @@
 const jwt = require('jsonwebtoken');
 
+// Log JWT_SECRET to ensure it is loaded correctly from .env
+console.log("JWT Secret: ", process.env.JWT_SECRET);
+
 // Middleware weryfikujący token JWT
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
