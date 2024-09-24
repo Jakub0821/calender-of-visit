@@ -5,6 +5,10 @@ const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1]; // Pobieranie tokenu po "Bearer"
 
+  // Debugging: print authHeader and token to the console
+  console.log('Authorization Header:', authHeader);
+  console.log('Extracted Token:', token);
+
   if (!token) {
     return res.status(401).json({ message: 'Access denied' });
   }
